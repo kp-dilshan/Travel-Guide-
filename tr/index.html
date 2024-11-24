@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DILSHAN Eco-Tours Sri lanka</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.2.0/flowbite.min.js"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet"href="style.css">
+    
+</head>
+<body class="bg-gray-50">
+    <!-- Navigation -->
+    <nav class="bg-white fixed w-full z-50 shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16">
+                <div class="flex items-center">
+                    <span class="text-2xl font-bold gradient-text">DILSHAN Eco-Tours</span>
+                </div>
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="#destinations" class="text-gray-600 hover:text-blue-600">Destinations</a>
+                    <a href="#experiences" class="text-gray-600 hover:text-blue-600">Experiences</a>
+                    <a href="#itineraries" class="text-gray-600 hover:text-blue-600">Itineraries</a>
+                    <a href="#tips" class="text-gray-600 hover:text-blue-600">Travel Tips</a>
+                    <a href="map.html"><button class="bg-blue-600 text-white px-6 py-2 rounded-full hover:bg-blue-700 transition">
+                        Plan Your Trip
+                    </button></a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <div class="hero-section">
+        <div class="slider">
+            <!-- Slide 1 -->
+            <div class="slide active">
+                <video class="hero-video" autoplay muted loop playsinline>
+                    <source src="b.mp4" type="video/mp4">
+                </video>
+                <div class="hero-overlay">
+                    <div class="slide-content">
+                        <h1>Welcome to Sri Lanka</h1>
+                        <p>Discover Paradise Island's Hidden Treasures</p>
+                        <a href="form.html" target="_blank">
+                            <button class="explore-btn">Start Exploring</button>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Slide 2 -->
+            <div class="slide">
+                <video class="hero-video" autoplay muted loop playsinline>
+                    <source src="a.mp4" type="video/mp4">
+                </video>
+                <div class="hero-overlay">
+                    <div class="slide-content">
+                        <h1>Experience Culture</h1>
+                        <p>Ancient Temples & Traditional Heritage</p>
+                        <a href="culture.html" target="_blank">
+                            <button class="explore-btn">Explore Culture</button>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Slide 3 -->
+            <div class="slide">
+                <video class="hero-video" autoplay muted loop playsinline>
+                    <source src="c.mp4" type="video/mp4">
+                </video>
+                
+                <div class="hero-overlay">
+                    <div class="slide-content">
+                        <h1>Natural Wonders</h1>
+                        <p>Beaches, Mountains & Wildlife</p>
+                        <a href="nature.html" target="_blank">
+                            <button class="explore-btn">Discover Nature</button>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Slider Navigation -->
+        <div class="slider-nav">
+            <div class="slider-dot active"></div>
+            <div class="slider-dot"></div>
+            <div class="slider-dot"></div>
+        </div>
+    </div>
+
+
+    <!-- Destinations Section -->
+    <section id="destinations" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-4xl font-bold text-center mb-16 gradient-text">Top Destinations</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Destination Cards -->
+                <div class="destination-card bg-white rounded-xl shadow-lg overflow-hidden" data-aos="fade-up">
+                    <img src="c.jpg" alt="Colombo" class="w-full h-48 object-cover"/>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2">Colombo</h3>
+                        <p class="text-gray-600 mb-4">Colombo is a busy and vibrant city with a mixture of modern life, colonial buildings and monuments. [9] It was made the capital of the island when Sri Lanka was ceded to the British Empire in 1815</p>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="px-3 py-1 bg-blue-100 text-blue-600 rounded-full text-sm">National Museum</span>
+                            <span class="px-3 py-1 bg-blue-100 text-blue-600 rounded-full text-sm">Gangaramaya Temple</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="destination-card bg-white rounded-xl shadow-lg overflow-hidden" data-aos="fade-up" data-aos-delay="100">
+                    <img src="k.jpg" alt="Kandy" class="w-full h-48 object-cover"/>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2">Kandy</h3>
+                        <p class="text-gray-600 mb-4">Kandy is in the centre of Sri Lanka 125 km away from Colombo and is generally recognised as the island nation's cultural capital. It is on the UNESCO World Heritage List.</p>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="px-3 py-1 bg-blue-100 text-blue-600 rounded-full text-sm">Temple of Tooth</span>
+                            <span class="px-3 py-1 bg-blue-100 text-blue-600 rounded-full text-sm">Kandy Lake</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="destination-card bg-white rounded-xl shadow-lg overflow-hidden" data-aos="fade-up" data-aos-delay="200">
+                    <img src="s.jpg" alt="Sigiriya" class="w-full h-48 object-cover"/>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2">Sigiriya</h3>
+                        <p class="text-gray-600 mb-4">Sigiriya, site in central Sri Lanka consisting of the ruins of an ancient stronghold that was built in the late 5th century ce on a remarkable monolithic rock pillar.</p>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="px-3 py-1 bg-blue-100 text-blue-600 rounded-full text-sm">Lion's Rock</span>
+                            <span class="px-3 py-1 bg-blue-100 text-blue-600 rounded-full text-sm">Ancient Frescoes</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="destination-card bg-white rounded-xl shadow-lg overflow-hidden" data-aos="fade-up" data-aos-delay="100">
+                    <img src="n.jpg" alt="Kandy" class="w-full h-48 object-cover"/>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2">Nuwara Eliya</h3>
+                        <p class="text-gray-600 mb-4">Nuwara Eliya, called Little England, was a hill country retreat where the British colonialists could immerse themselves in their pastimes such as fox hunting, deer hunting, elephant hunting</p>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="px-3 py-1 bg-blue-100 text-blue-600 rounded-full text-sm">Lake Gregory</span>
+                            <span class="px-3 py-1 bg-blue-100 text-blue-600 rounded-full text-sm">Bomburu Ella waterfall</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="destination-card bg-white rounded-xl shadow-lg overflow-hidden" data-aos="fade-up" data-aos-delay="100">
+                    <img src="e.jpg" alt="Kandy" class="w-full h-48 object-cover"/>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2">Ella</h3>
+                        <p class="text-gray-600 mb-4">Sri Lanka, with a cooler climate and rich bio-diversity. It is surrounded by hills, tea plantations, waterfalls and a historic railway station.</p>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="px-3 py-1 bg-blue-100 text-blue-600 rounded-full text-sm">Ella Rock</span>
+                            <span class="px-3 py-1 bg-blue-100 text-blue-600 rounded-full text-sm">littel Adam's Peak</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="destination-card bg-white rounded-xl shadow-lg overflow-hidden" data-aos="fade-up" data-aos-delay="100">
+                    <img src="g.jpg" alt="Kandy" class="w-full h-48 object-cover"/>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2">Galle Fort</h3>
+                        <p class="text-gray-600 mb-4">UNESCO World Heritage Site built by the Portuguese and extensively fortified by the Dutch in the 17th century.</p>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="px-3 py-1 bg-blue-100 text-blue-600 rounded-full text-sm">Jungle Beech</span>
+                            <span class="px-3 py-1 bg-blue-100 text-blue-600 rounded-full text-sm">Thalpe</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experiences Section -->
+    <section id="experiences" class="py-20 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-4xl font-bold text-center mb-16 gradient-text">Unforgettable Experiences</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div class="bg-white rounded-xl p-8 shadow-lg" data-aos="fade-right">
+                    <h3 class="text-2xl font-bold mb-4">DILSHAN Eco-Tours Train Rides</h3>
+                    <p class="text-gray-600">Experience one of the most beautiful train journeys in the world from Kandy to Ella.</p>
+                </div>
+                <div class="bg-white rounded-xl p-8 shadow-lg" data-aos="fade-left">
+                    <h3 class="text-2xl font-bold mb-4">Tea Plantation Tours</h3>
+                    <p class="text-gray-600">Visit stunning tea plantations and learn about Ceylon tea production.</p>
+                </div>
+
+                <div class="bg-white rounded-xl p-8 shadow-lg" data-aos="fade-left">
+                    <h3 class="text-2xl font-bold mb-4">Highest rope Jump at Laxapana waterfall</h3>
+                    <p class="text-gray-600">Visit stunning tea plantations and learn about Ceylon tea production.</p>
+                </div>
+
+                <div class="bg-white rounded-xl p-8 shadow-lg" data-aos="fade-left">
+                    <h3 class="text-2xl font-bold mb-4">Sigiriya Village Tours</h3>
+                    <p class="text-gray-600">Visit stunning tea plantations and learn about Ceylon tea production.</p>
+                </div>
+
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Itineraries Section -->
+    <section id="itineraries" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-4xl font-bold text-center mb-16 gradient-text">Sample Itineraries</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div class="bg-gray-50 rounded-xl p-8" data-aos="zoom-in">
+                    <h3 class="text-2xl font-bold mb-4">Classic Sri Lanka Tour</h3>
+                    <div class="space-y-4">
+                        <div class="flex items-center">
+                            <div class="w-8 h-8 bg-blue-600 rounded-full flex items-center justify-center text-white">1</div>
+                            <p class="ml-4">Arrival in Colombo</p>
+                        </div>
+                        <div class="flex items-center">
+                            <div class="w-8 h-8 bg-blue-600 rounded-full flex items-center justify-center text-white">2</div>
+                            <p class="ml-4">Kandy - Temple of the Tooth</p>
+                        </div>
+                        <div class="flex items-center">
+                            <div class="w-8 h-8 bg-blue-600 rounded-full flex items-center justify-center text-white">3</div>
+                            <p class="ml-4">Sigiriya Rock Fortress</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="bg-gray-50 rounded-xl p-8" data-aos="zoom-in" data-aos-delay="100">
+                    <h3 class="text-2xl font-bold mb-4">Beach Bliss</h3>
+                    <div class="space-y-4">
+                        <div class="flex items-center">
+                            <div class="w-8 h-8 bg-blue-600 rounded-full flex items-center justify-center text-white">1</div>
+                            <p class="ml-4">Bentota Beach</p>
+                        </div>
+                        <div class="flex items-center">
+                            <div class="w-8 h-8 bg-blue-600 rounded-full flex items-center justify-center text-white">2</div>
+                            <p class="ml-4">Mirissa - Whale Watching</p>
+                        </div>
+                        <div class="flex items-center">
+                            <div class="w-8 h-8 bg-blue-600 rounded-full flex items-center justify-center text-white">3</div>
+                            <p class="ml-4">Galle Fort Exploration</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Travel Tips Section -->
+    <section id="tips" class="py-20 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-4xl font-bold text-center mb-16 gradient-text">Essential Travel Tips</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div class="bg-white p-6 rounded-xl shadow-lg" data-aos="fade-up">
+                    <h3 class="font-bold mb-2">Visa Requirements</h3>
+                    <p class="text-gray-600">Electronic Travel Authorization (ETA) required for most nationalities</p>
+                </div>
+                <div class="bg-white p-6 rounded-xl shadow-lg" data-aos="fade-up" data-aos-delay="100">
+                    <h3 class="font-bold mb-2">Currency</h3>
+                    <p class="text-gray-600">Sri Lankan Rupee (LKR)</p>
+                </div>
+                <div class="bg-white p-6 rounded-xl shadow-lg" data-aos="fade-up" data-aos-delay="200">
+                    <h3 class="font-bold mb-2">Language</h3>
+                    <p class="text-gray-600">Sinhala, Tamil, and English widely spoken</p>
+                </div>
+                <div class="bg-white p-6 rounded-xl shadow-lg" data-aos="fade-up" data-aos-delay="300">
+                    <h3 class="font-bold mb-2">Transport</h3>
+                    <p class="text-gray-600">Tuk-tuks, trains, and buses available</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div>
+                    <h3 class="text-xl font-bold mb-4">DILSHAN Eco-Tours</h3>
+                    <p class="text-gray-400">Your ultimate guide to exploring paradise</p>
+                </div>
+                <div>
+                    <h3 class="text-xl font-bold mb-4">Quick Links</h3>
+                    <ul class="space-y-2 text-gray-400">
+                        <li><a href="#destinations" class="hover:text-white">Destinations</a></li>
+                        <li><a href="#experiences" class="hover:text-white">Experiences</a></li>
+                        <li><a href="#itineraries" class="hover:text-white">Itineraries</a></li>
+                        <li><a href="#tips" class="hover:text-white">Travel Tips</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-xl font-bold mb-4">Contact Us</h3>
+                    <p class="text-gray-400">Email:dilshanecotours@gmail.com</p>
+                    <p class="text-gray-400">Phone: +94 756438176</p>
+                </div>
+            </div>
+            <div class="mt-8 pt-8 border-t border-gray-800 text-center text-gray-400">
+                <p>&copy; 2024 DILSHAN Eco-Tours. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+
+document.addEventListener('DOMContentLoaded', function() {
+            const slides = document.querySelectorAll('.slide');
+            const dots = document.querySelectorAll('.slider-dot');
+            let currentSlide = 0;
+            const slideInterval = 5000; // Change slide every 5 seconds
+
+            function goToSlide(index) {
+                // Remove active class from current slide and dot
+                slides[currentSlide].classList.remove('active');
+                dots[currentSlide].classList.remove('active');
+                
+                // Update current slide index
+                currentSlide = index;
+                
+                // Add active class to new slide and dot
+                slides[currentSlide].classList.add('active');
+                dots[currentSlide].classList.add('active');
+            }
+
+            function nextSlide() {
+                let nextIndex = currentSlide + 1;
+                if (nextIndex >= slides.length) {
+                    nextIndex = 0;
+                }
+                goToSlide(nextIndex);
+            }
+
+            // Add click events to dots
+            dots.forEach((dot, index) => {
+                dot.addEventListener('click', () => {
+                    goToSlide(index);
+                    resetTimer(); // Reset timer when manually changing slides
+                });
+            });
+
+            // Set up auto-sliding
+            let slideTimer = setInterval(nextSlide, slideInterval);
+
+            function resetTimer() {
+                clearInterval(slideTimer);
+                slideTimer = setInterval(nextSlide, slideInterval);
+            }
+
+            // Pause slider on hover
+            const heroSection = document.querySelector('.hero-section');
+            heroSection.addEventListener('mouseenter', () => {
+                clearInterval(slideTimer);
+            });
+
+            heroSection.addEventListener('mouseleave', () => {
+                slideTimer = setInterval(nextSlide, slideInterval);
+            });
+        });
+
+
+
+
+
+
+
+        // Initialize AOS
+        AOS.init({
+            duration: 1000,
+            once: true
+        });
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>

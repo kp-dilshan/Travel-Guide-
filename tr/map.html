@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Sri Lanka Travel Guide</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet-routing-machine/3.2.12/leaflet-routing-machine.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet-routing-machine/3.2.12/leaflet-routing-machine.css">
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        h1, h2 {
+            color: #2c3e50;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        
+        #map {
+            height: 500px;
+            width: 100%;
+            margin-bottom: 30px;
+            border-radius: 10px;
+            z-index: 1;
+        }
+        
+        .route-controls {
+            margin-bottom: 20px;
+            padding: 15px;
+            background: #f8f9fa;
+            border-radius: 10px;
+        }
+        
+        .route-controls input {
+            padding: 8px;
+            margin: 5px;
+            width: calc(33% - 10px);
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        
+        .route-controls button {
+            padding: 8px 15px;
+            background: #3498db;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        
+        .route-controls button:hover {
+            background: #2980b9;
+        }
+        
+        .category-section {
+            margin-bottom: 40px;
+        }
+        
+        .location-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+        
+        .location-card {
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            padding: 15px;
+            background: #fff;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        
+        .location-card h3 {
+            color: #2c3e50;
+            margin-bottom: 10px;
+        }
+        
+        .category {
+            padding: 5px 10px;
+            border-radius: 15px;
+            font-size: 0.8em;
+            display: inline-block;
+            margin-bottom: 10px;
+            color: white;
+        }
+        
+        .beaches { background: #3498db; }
+        .hiking { background: #27ae60; }
+        .cultural { background: #f1c40f; }
+        
+        .get-directions {
+            background: #3498db;
+            color: white;
+            padding: 5px 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+        
+        .get-directions:hover {
+            background: #2980b9;
+        }
+
+        .leaflet-popup-content button {
+            background: #3498db;
+            color: white;
+            padding: 5px 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🌴 DILSHAN Eco Travel Guide 🌴</h1>
+        
+        <div class="route-controls">
+            <input type="text" id="start" placeholder="Starting point (click on map)">
+            <input type="text" id="end" placeholder="Destination (click on map)">
+            <button onclick="calculateRoute()">Get Directions</button>
+        </div>
+        
+        <div id="map"></div>
+        
+        <!-- Beach Destinations -->
+        <div class="category-section">
+            <h2>🏖️ Beach Destinations</h2>
+            <div class="location-grid" id="beaches"></div>
+        </div>
+        
+        <!-- Hiking & Camping -->
+        <div class="category-section">
+            <h2>🏔️ Hiking & Camping Spots</h2>
+            <div class="location-grid" id="hiking"></div>
+        </div>
+        
+        <!-- Cultural Sites -->
+        <div class="category-section">
+            <h2>🏛️ Cultural Sites</h2>
+            <div class="location-grid" id="cultural"></div>
+        </div>
+    </div>
+
+    <script>
+        let map;
+        let routingControl = null;
+        let startMarker = null;
+        let endMarker = null;
+
+        // Location data
+        const beaches = [
+            {name: "Point Pedro", coords: [9.8249, 80.2449], description: "Northernmost point with serene beaches"},
+            {name: "Trincomalee", coords: [8.5874, 81.2152], description: "Famous for pristine beaches and whale watching"},
+            {name: "Arugam Bay", coords: [6.8433, 81.8352], description: "Popular surfing destination"},
+            {name: "Mirissa", coords: [5.9483, 80.4716], description: "Whale watching destination"},
+            {name: "Unawatuna", coords: [6.0174, 80.2489], description: "Coral reefs and snorkeling"},
+            {name: "Bentota", coords: [6.4216, 79.9959], description: "Luxury resorts and water sports"}
+        ];
+
+        const hiking = [
+            {name: "Knuckles Mountain", coords: [7.4614, 80.7961], description: "UNESCO site for hiking"},
+            {name: "Adam's Peak", coords: [6.8096, 80.4994], description: "Sacred mountain hiking"},
+            {name: "Horton Plains", coords: [6.8019, 80.8354], description: "World's End viewpoint"},
+            {name: "Ella Rock", coords: [6.8667, 81.0466], description: "Panoramic hiking trail"},
+            {name: "Pidurangala", coords: [7.9589, 80.7651], description: "Ancient rock fortress hiking"}
+        ];
+
+        const cultural = [
+            {name: "Sigiriya", coords: [7.9570, 80.7603], description: "Ancient rock fortress"},
+            {name: "Temple of the Tooth", coords: [7.2936, 80.6413], description: "Sacred Buddhist temple"},
+            {name: "Dambulla Cave", coords: [7.8568, 80.6483], description: "Cave temple complex"},
+            {name: "Polonnaruwa", coords: [7.9403, 81.0188], description: "Ancient city"},
+            {name: "Anuradhapura", coords: [8.3114, 80.4037], description: "Sacred ancient city"}
+        ];
+
+        // Initialize map
+        function initMap() {
+            map = L.map('map').setView([7.8731, 80.7718], 8);
+            
+            L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                attribution: '© OpenStreetMap contributors'
+            }).addTo(map);
+
+            // Add click handlers for route selection
+            map.on('click', function(e) {
+                if (!startMarker) {
+                    startMarker = L.marker(e.latlng).addTo(map);
+                    document.getElementById('start').value = `${e.latlng.lat.toFixed(4)}, ${e.latlng.lng.toFixed(4)}`;
+                } else if (!endMarker) {
+                    endMarker = L.marker(e.latlng).addTo(map);
+                    document.getElementById('end').value = `${e.latlng.lat.toFixed(4)}, ${e.latlng.lng.toFixed(4)}`;
+                }
+            });
+        }
+
+        // Add markers with custom icons
+        function addMarkers(locations, color) {
+            locations.forEach(loc => {
+                const marker = L.circleMarker(loc.coords, {
+                    radius: 8,
+                    fillColor: color,
+                    color: '#fff',
+                    weight: 1,
+                    opacity: 1,
+                    fillOpacity: 0.8
+                }).addTo(map);
+
+                marker.bindPopup(`
+                    <h3>${loc.name}</h3>
+                    <p>${loc.description}</p>
+                    <button onclick="setDestination(${loc.coords[0]}, ${loc.coords[1]})">Set as Destination</button>
+                `);
+            });
+        }
+
+        // Set destination
+        function setDestination(lat, lng) {
+            if (endMarker) {
+                map.removeLayer(endMarker);
+            }
+            endMarker = L.marker([lat, lng]).addTo(map);
+            document.getElementById('end').value = `${lat}, ${lng}`;
+        }
+
+        // Calculate route
+        function calculateRoute() {
+            const start = document.getElementById('start').value.split(',').map(Number);
+            const end = document.getElementById('end').value.split(',').map(Number);
+
+            if (routingControl) {
+                map.removeControl(routingControl);
+            }
+
+            routingControl = L.Routing.control({
+                waypoints: [
+                    L.latLng(start[0], start[1]),
+                    L.latLng(end[0], end[1])
+                ],
+                routeWhileDragging: true
+            }).addTo(map);
+        }
+
+        // Add location cards
+        function addLocationCards(locations, containerId, category) {
+            const container = document.getElementById(containerId);
+            locations.forEach(loc => {
+                container.innerHTML += `
+                    <div class="location-card">
+                        <span class="category ${category}">${category.charAt(0).toUpperCase() + category.slice(1)}</span>
+                        <h3>${loc.name}</h3>
+                        <p>${loc.description}</p>
+                        <button class="get-directions" onclick="setDestination(${loc.coords[0]}, ${loc.coords[1]})">Get Directions</button>
+                    </div>
+                `;
+            });
+        }
+
+        // Initialize everything when the page loads
+        window.onload = function() {
+            initMap();
+            addMarkers(beaches, '#3498db');
+            addMarkers(hiking, '#27ae60');
+            addMarkers(cultural, '#f1c40f');
+            
+            addLocationCards(beaches, 'beaches', 'beaches');
+            addLocationCards(hiking, 'hiking', 'hiking');
+            addLocationCards(cultural, 'cultural', 'cultural');
+        };
+    </script>
+</body>
+</html>

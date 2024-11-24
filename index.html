@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>DILSHAN Eco-tours</title>
+    <style>
+        body, html {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            scroll-behavior: smooth;
+        }
+        .navbar {
+            background-color: #2c3e50;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 50px;
+            color: white;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+        }
+        .nav-links {
+            display: flex;
+            gap: 20px;
+        }
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        .nav-links a:hover {
+            color: #3498db;
+        }
+        .login-btn {
+  position: relative;
+  left: -70px;
+  background-color: #3498db;
+  color: white;
+  border: none;
+  padding: 10px 30px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+        .home-video {
+            width: 100%;
+            max-height: 600px;
+            object-fit: cover;
+            margin-top: 80px;
+        }
+        .hero-content {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            color: white;
+            background: rgba(0,0,0,0.5);
+            padding: 30px;
+            border-radius: 10px;
+        }
+        .footer {
+            background-color: #2c3e50;
+            color: white;
+            display: flex;
+            justify-content: space-around;
+            padding: 30px;
+        }
+        .contact-page {
+            padding: 50px;
+            background-color: #f4f4f4;
+        }
+        .contact-form {
+            max-width: 500px;
+            margin: 0 auto;
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        .contact-form input, 
+        .contact-form textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="logo">DILSHAN Eco-tours</div>
+        <div class="nav-links">
+            <a href="#home">Home</a>
+            <a href="#">Tours</a>
+            <a href="#contact">Contact</a>
+            <a href="#">About</a>
+        </div>
+        <a href="login.php"><button class="login-btn" onclick="openLoginModal()">Login</button></a>
+    </nav>
+
+    <div id="home">
+        <div style="position: relative;">
+            <video class="home-video" autoplay loop muted>
+                <source src="tr/a.mp4" type="video/mp4">
+            </video>
+            <div class="hero-content">
+                <h1>Discover Nature's Hidden Wonders</h1>
+                <p>Embark on sustainable, unforgettable eco-adventures with DILSHAN Eco-tours</p>
+                <button style="background-color: #3498db; color: white; border: none; padding: 10px 20px; margin-top: 15px; border-radius: 5px;">Explore Tours</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="contact" class="contact-page">
+        <div class="contact-form">
+            <h2>Contact Us</h2>
+            <form>
+                <input type="text" placeholder="Your Name" required>
+                <input type="email" placeholder="Your Email" required>
+                <input type="tel" placeholder="Your Phone">
+                <textarea placeholder="Your Message" rows="5" required></textarea>
+                <button type="submit" style="background-color: #3498db; color: white; border: none; padding: 10px 20px; border-radius: 5px; width: 100%;">Send Message</button>
+            </form>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div>
+            <h3>DILSHAN Eco-tours</h3>
+            <p>Sustainable Travel Experiences</p>
+        </div>
+        <div>
+            <h4>Quick Links</h4>
+            <p>Home</p>
+            <p>Tours</p>
+            <p>About Us</p>
+        </div>
+        <div>
+            <h4>Contact Info</h4>
+            <p>📍 47,Galle,Sri Lanka</p>
+            <p>📞 +94756438176</p>
+            <p>✉️ info@dilshanecotours.com</p>
+        </div>
+        <div>
+            <h4>Follow Us</h4>
+            <p>Facebook</p>
+            <p>Instagram</p>
+            <p>Twitter</p>
+        </div>
+    </footer>
+
+    <script>
+        function openLoginModal() {
+            const loginForm = `
+                <div id="loginModal" style="position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.5);display:flex;justify-content:center;align-items:center;">
+                    <div style="background:white;padding:30px;border-radius:10px;">
+                        <h2>Login</h2>
+                        <input type="email" placeholder="Email" style="width:100%;margin-bottom:10px;padding:10px;">
+                        <input type="password" placeholder="Password" style="width:100%;margin-bottom:10px;padding:10px;">
+                        <button onclick="document.getElementById('loginModal').remove()" style="width:100%;padding:10px;background:#3498db;color:white;border:none;">Login</button>
+                    </div>
+                </div>
+            `;
+            document.body.insertAdjacentHTML('beforeend', loginForm);
+        }
+    </script>
+</body>
+</html>
